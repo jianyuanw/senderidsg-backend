@@ -3,11 +3,11 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
+const port = process.env.PORT || 5000;
+const passcode = process.env.PASSCODE;
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
-
-const passcode = process.env.PASSCODE;
 
 app.use(cors());
 app.use(express.json());
@@ -40,7 +40,6 @@ app.post('/', async (req, res) => {
   }
 });
 
-const port = 4000;
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
