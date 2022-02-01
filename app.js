@@ -23,7 +23,7 @@ app.post('/', async (req, res) => {
   }
   const smsBody = req.body.smsBody;
   const smsFrom = req.body.smsFrom;
-  const smsTo = req.body.smsTo;
+  const smsTo = parseInt(req.body.smsTo);
   if (!smsBody || !smsFrom || !smsTo) {
     return res.status(400).send({ message: 'Missing SMS body/from/to' });
   }
